@@ -5,10 +5,15 @@ import plane from 'src/images/plane.png';
 import { Text } from 'src/ui/text';
 
 import styles from './Article.module.scss';
+import { LegacyRef } from 'react';
 
-export const Article = () => {
+type ArticleProps = {
+	refArticle: LegacyRef<HTMLElement> | undefined;
+};
+
+export const Article = (props: ArticleProps) => {
 	return (
-		<article className={clsx(styles.article)}>
+		<article ref={props.refArticle} className={clsx(styles.article)}>
 			<Text as='h1' size={45} weight={800} uppercase dynamicLite>
 				Портрет Западной Швейцарии
 			</Text>
